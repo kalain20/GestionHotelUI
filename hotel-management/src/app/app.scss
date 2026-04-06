@@ -1,0 +1,25 @@
+.app-container {
+  display: flex;         /* Aligne sidebar et main-content horizontalement */
+  height: 100vh;        /* Prend toute la hauteur de l'écran */
+  width: 100vw;         /* Prend toute la largeur de l'écran */
+  overflow: hidden;      /* Évite les doubles barres de défilement */
+}
+
+.sidebar {
+  width: 250px;         /* Largeur fixe pour votre menu de gauche */
+  height: 100%;
+  background-color: #1a1a1a; /* Couleur sombre comme sur votre image */
+}
+
+.main-content {
+  flex-grow: 1;         /* Prend tout l'espace restant à droite */
+  overflow-y: auto;     /* Permet de scroller uniquement le contenu si c'est long */
+  padding: 20px;
+  background-color: #121212; /* Fond noir pour la zone "ICI" */
+}
+.zone-affichage {
+  flex-grow: 1;
+  background-color: #121212; /* Votre fond noir */
+  color: #ffffff;            /* Force le texte en BLANC */
+  padding: 20px;
+}
