@@ -1,0 +1,56 @@
+## --- ARTEFACTS DE COMPILATION ---
+[Bb]in/
+[Oo]bj/
+# Fichiers de publication
+publish/
+
+## --- ÉDITEURS ET IDE ---
+# Visual Studio
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+
+# VS Code
+.vscode/
+# (On ignore tout dans .vscode sauf les configs de lancement si besoin)
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+## --- CONFIGURATION ET SECRETS ---
+# Fichiers de settings locaux (souvent utilisés pour les clés d'API de test)
+appsettings.Development.json
+appsettings.Local.json
+
+# Fichiers de secrets utilisateur .NET
+# (Normalement stockés hors du projet, mais par précaution :)
+secrets.json
+
+## --- PACKAGES ET DÉPENDANCES ---
+*.nupkg
+# Dossier de packages NuGet (ancien format)
+packages/
+# Si vous avez un client Web intégré
+node_modules/
+
+## --- SYSTÈME ET LOGS ---
+*.log
+.DS_Store
+Thumbs.db
+# --- Fichiers de cache liés à la solution ---
+# Visual Studio crée parfois des fichiers temporaires à côté du .sln
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# --- Configuration sensible ---
+# On garde appsettings.json (modèle) mais on ignore les versions avec secrets
+appsettings.Development.json
+appsettings.Local.json
+## --- TESTS ---
+TestResults/
