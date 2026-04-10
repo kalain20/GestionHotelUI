@@ -1,4 +1,4 @@
-import { StatusChambre } from "./status-chambre";
+
 import { TypeStatutChambre } from "./type-statut-chambre";
 export interface Chambre {
     id: number;

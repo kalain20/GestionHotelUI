@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { Operation } from "../../modeles/operation.interface";
 import { typeOperation } from "../../modeles/type-operation";
-import { StatusClient } from "../../modeles/status-client";
-import { StatusChambre } from "../../modeles/status-chambre";
+import { StatusClient } from "../../modeles/statut-client";
+
 import { Observable, of} from "rxjs";
 
 @Injectable({ providedIn: 'root' })

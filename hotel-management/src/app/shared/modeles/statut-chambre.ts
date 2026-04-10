@@ -1,4 +1,4 @@
-export enum StatusChambre {
+export enum StatutChambre {
     Disponible = 'Libre',
     Occupee = 'Occupée',
     ÀNettoyager = 'À nettoyager',

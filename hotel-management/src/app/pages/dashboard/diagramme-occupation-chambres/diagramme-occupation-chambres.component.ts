@@ -26,7 +26,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import { StatutDonneesChambres } from "../../../shared/modeles/statut-donnees-chambres";
+import { StatutDonneesChambres } from "../../../shared/modeles/statut-donnees-chambres.interface";
 import { DiagrammeCirculaireService } from "../../../shared/services/externes/diagramme-circulaire-service";
  
 Chart.register(ArcElement, DoughnutController, Tooltip, Legend);

@@ -1,4 +1,4 @@
-import { StatusClient } from "./status-client";
+import { StatusClient } from "./statut-client";
 
 export interface Client {
     id: number;

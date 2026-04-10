@@ -1,5 +1,5 @@
 import {  Injectable } from "@angular/core";
-import { StatutDonneesChambres } from "../../modeles/statut-donnees-chambres";
+import { StatutDonneesChambres } from "../../modeles/statut-donnees-chambres.interface";
 
 @Injectable({ providedIn: 'root' })
 export class DiagrammeCirculaireService { 
