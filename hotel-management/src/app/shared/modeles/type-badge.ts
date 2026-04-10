@@ -1,0 +1,1 @@
+export type typeBadge =  'warning' | 'success' | 'info' | 'danger'| 'secondary' | 'primary' | 'light' | 'dark';

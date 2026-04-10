@@ -1,0 +1,1 @@
+export type TypeStatutChambre = 'occupee' | 'libre' | 'maintenance'| 'libreNettoyee' | 'aNettoyer' ;

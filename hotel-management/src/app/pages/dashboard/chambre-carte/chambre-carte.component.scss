@@ -1,0 +1,120 @@
+.room-map-card {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+
+  mat-card-header {
+    display: flex;
+    align-items: center;
+    padding: 16px 16px 0;
+
+    mat-card-title {
+      font-size: 13px !important;
+      font-weight: 500 !important;
+      color: var(--text-secondary) !important;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 !important;
+    }
+    .spacer { flex: 1; }
+    .voir-tout-btn {
+  /* Optionnel : pour que le bouton ne prenne pas toute la largeur */
+  align-self: flex-start; 
+}
+  }
+
+  mat-card-content { padding: 14px 16px 16px !important; }
+}
+.legende-row {
+ display: flex;
+  flex-direction: column; /* Empile la légende et le bouton verticalement */
+  align-items: flex-start; /* Aligne à gauche (ou 'center' si vous préférez) */
+  gap: 12px;               /* Espace entre la légende et le bouton */
+  margin-bottom: 20px;
+}
+.legende {
+  display: flex;
+  flex-wrap: wrap;         /* Permet aux pastilles de passer à la ligne si besoin */
+  gap: 10px;
+
+  .legende-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+  .dot {
+    width: 9px; height: 9px; border-radius: 3px; flex-shrink: 0;
+    &.dot-occupee     { background: #60a5fa; }
+    &.dot-disponible  { background: #34d399; }
+    &.dot-maintenance { background: #f59e0b; }
+    &.dot-a-nettoyer { background: #ff0000; }
+    &.dot-libre-nettoyee { background: #f200ff; }
+
+  }
+}
+
+.etages { display: flex; flex-direction: column; gap: 12px; }
+
+.etage-bloc {
+  .etage-label {
+    font-size: 10px; color: var(--text-muted);
+    text-transform: uppercase; letter-spacing: 0.07em;
+    margin-bottom: 6px; font-weight: 500;
+  }
+}
+
+.chambres-row { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.room-chip {
+  padding: 8px 15px; border-radius: 7px;
+  font-size: 14px; font-weight: 600;
+  cursor: pointer; user-select: none;
+  transition: transform 0.12s, box-shadow 0.12s;
+
+  &:hover { transform: scale(1.08); }
+  &:active { transform: scale(0.95); }
+  &.selected { box-shadow: 0 0 0 2px rgba(255,255,255,0.15); transform: scale(1.06); }
+
+  &.chip-occupee     { background: #1c3550; color: #60a5fa; border: 1px solid #2a4a6a; }
+  &.chip-disponible  { background: #1c3550; color: #34d399; border: 1px solid #2a4a6a; }
+  &.chip-maintenance { background: #1c3550; color: #f59e0b; border: 1px solid #2a4a6a; }
+  &.chip-a-nettoyer { background: #1c3550; color: #ff0000; border: 1px solid #2a4a6a; }
+  &.chip-libre-nettoyee { background: #1c3550; color: #f200ff; border: 1px solid #2a4a6a; }
+
+}
+
+.room-detail {
+  display: flex; 
+  align-items: center; gap: 10px;
+  margin-top: 16px; 
+  padding: 15px 20px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  animation: fadeIn 0.2s ease;
+
+  .detail-icon { color: var(--text-muted); font-size: 25px; width: 25px; height: 20px; }
+
+  .detail-info {
+    display: flex; flex-direction: column; flex: 1;
+    .detail-num  { font-size: 18px; font-weight: 500; color: var(--text-primary); }
+    .detail-type { font-size: 15px; color: var(--text-muted); }
+  }
+
+  .detail-badge {
+    font-size: 15px; padding: 5px 12px; border-radius: 20px; font-weight: 500;
+    &.badge-occupee     { background: #1c3550; color: #60a5fa; }
+    &.badge-disponible  { background: #1c3550; color: #34d399; }
+    &.badge-maintenance { background: #1c3550; color: #f59e0b; }
+    &.badge-a-nettoyer { background: #1c3550; color:  #ff4d4d; }
+    &.badge-libre-nettoyee { background: #1c3550; color: #f200ff; }
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

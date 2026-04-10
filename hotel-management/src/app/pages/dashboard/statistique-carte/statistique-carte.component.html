@@ -1,0 +1,39 @@
+
+<!-- ZONE PERFORMANCE (En haut) -->
+<div class="performance-container">
+  <mat-card class="stat-card perf-card">
+    <mat-card-content>
+      <div class="perf-header" [style.color]="getCouleurTaux(cartesPerformance?.valeur || 0)" >
+        <span class="perf-title" [style.color]="getCouleurTaux(cartesPerformance?.valeur || 0)">{{ cartesPerformance?.libelle }}</span>
+        <span class="perf-percentage" [style.color]="getCouleurTaux(cartesPerformance?.valeur || 0)">
+          {{ cartesPerformance?.valeur }}%
+        </span>
+      </div>
+      
+      <!-- Barre de progression pour le style visuel de l'image -->
+      <mat-progress-bar mode="determinate" [value]="cartesPerformance?.valeur"></mat-progress-bar>
+        <span class="perf-badge" [ngClass]="'badge-' + (cartesPerformance?.typeBadge || 'default')">
+            {{ cartesPerformance?.badge }}
+        </span>
+
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div class="stats-grid">
+  <!-- On boucle pour créer une carte par statistique -->
+  @for (statistique of statistiques; track statistique.libelle) {
+    <mat-card class="stat-card">
+      <mat-card-content>
+        <div class="stat-header">
+          <mat-icon class="stat-icon">{{ statistique.icone }}</mat-icon>
+          <span class="stat-label">{{ statistique.libelle }}</span>
+        </div>
+        <div class="stat-value">{{ statistique.valeur }}</div>
+        <span class="stat-badge" [ngClass]="'badge-' + statistique.typeBadge">
+          {{ statistique.badge }}
+        </span>
+      </mat-card-content>
+    </mat-card>
+  }
+</div>

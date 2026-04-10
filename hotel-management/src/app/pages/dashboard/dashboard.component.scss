@@ -1,0 +1,15 @@
+.dashboard {
+  padding: 24px;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+  margin-top: 24px;
+}
+.col-side {
+  position: sticky;
+  top: 24px;
+}

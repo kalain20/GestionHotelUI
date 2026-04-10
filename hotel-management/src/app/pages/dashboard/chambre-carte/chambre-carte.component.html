@@ -1,0 +1,76 @@
+<mat-card class="room-map-card">
+  <mat-card-header>
+    <mat-card-title>Carte des chambres</mat-card-title>
+    <span class="spacer"></span>
+  </mat-card-header>
+ 
+  <mat-card-content>
+ 
+    <!-- Légende + bouton Voir tout -->
+<div class="legende-row">
+  <div class="legende">
+    <span class="legende-item"><span class="dot dot-occupee"></span>Occupée</span>
+    <span class="legende-item"><span class="dot dot-disponible"></span>Disponible</span>
+    <span class="legende-item"><span class="dot dot-maintenance"></span>Maintenance</span>
+    <span class="legende-item"><span class="dot dot-a-nettoyer"></span>À Nettoyer</span>
+    <span class="legende-item"><span class="dot dot-libre-nettoyee"></span>Libre Nettoyée</span>
+  </div>
+
+  @if (totalChambres > 20) {
+    <button
+      mat-stroked-button
+      class="voir-tout-btn"
+      (click)="toggleVoirTout()">
+      <mat-icon>{{ voirTout() ? 'unfold_less' : 'unfold_more' }}</mat-icon>
+      {{ voirTout() ? 'Réduire' : 'Voir tout (' + chambresRestantes + ' de plus)' }}
+    </button>
+  }
+</div>
+ 
+    <!-- Étages filtrés -->
+    <div class="etages">
+      @for (etage of etagesFiltres; track etage.numero) {
+        <div class="etage-bloc">
+          <p class="etage-label">{{ etage.numero }}</p>
+          <div class="chambres-row">
+            @for (chambre of etage.chambres; track chambre.numero) {
+              <span
+                class="room-chip"
+                [ngClass]="recupererTypeClass(chambre.status)"
+                [class.selected]="selectionneeChambre?.numero === chambre.numero"
+                [matTooltip]="'Ch. ' + chambre.numero + ' — ' + chambre.type + ' — ' + recupererTypeLabel(chambre.status)"
+                (click)="chambreClick(chambre)">
+                {{ chambre.numero }}
+              </span>
+            }
+          </div>
+        </div>
+      }
+    </div>
+ 
+    <!-- Indicateur chambres masquées -->
+    @if (!voirTout() && chambresRestantes > 0) {
+      <div class="masquees-hint" (click)="toggleVoirTout()">
+        <mat-icon>add_circle_outline</mat-icon>
+        {{ chambresRestantes }} chambre{{ chambresRestantes > 1 ? 's' : '' }} masquée{{ chambresRestantes > 1 ? 's' : '' }} — cliquez pour tout afficher
+      </div>
+    }
+ 
+    <!-- Détail chambre sélectionnée -->
+    @if (selectionneeChambre !== null) {
+      <div class="room-detail">
+        <mat-icon class="detail-icon">meeting_room</mat-icon>
+        <div class="detail-info">
+          <span class="detail-num">Chambre {{ selectionneeChambre.numero }}</span>
+          <span class="detail-type">
+            Type : {{ selectionneeChambre.type }} — Étage : {{ selectionneeChambre.etage }}
+          </span>
+          <span class="detail-badge" [ngClass]="recupererBadgeClass(selectionneeChambre.status)">
+            {{ recupererTypeLabel(selectionneeChambre.status) }}
+          </span>
+        </div>
+      </div>
+    }
+ 
+  </mat-card-content>
+</mat-card>

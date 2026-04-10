@@ -15,11 +15,11 @@
   flex-grow: 1;         /* Prend tout l'espace restant à droite */
   overflow-y: auto;     /* Permet de scroller uniquement le contenu si c'est long */
   padding: 20px;
-  background-color: #121212; /* Fond noir pour la zone "ICI" */
+  background-color: #474747; /* Fond noir pour la zone "ICI" */
 }
 .zone-affichage {
   flex-grow: 1;
-  background-color: #121212; /* Votre fond noir */
+  background-color: #5e5a5a; /* Votre fond noir */
   color: #ffffff;            /* Force le texte en BLANC */
   padding: 20px;
 }

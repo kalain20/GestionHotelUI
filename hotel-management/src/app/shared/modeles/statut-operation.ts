@@ -1,0 +1,1 @@
+export type StatutOperation = 'En attente' | 'En cours' | 'Terminé' | 'Annulé';

@@ -1,0 +1,111 @@
+<mat-card class="occupancy-card">
+
+  <!-- ── Card header ── -->
+  <mat-card-header>
+    <div class="header-top">
+      <div class="header-left">
+        <mat-card-title>
+          <mat-icon class="title-icon">donut_large</mat-icon>
+          État des chambres
+        </mat-card-title>
+        <mat-card-subtitle>{{ periodLabel() }}</mat-card-subtitle>
+      </div>
+
+      <!-- Period toggle -->
+      <mat-button-toggle-group
+        class="period-toggle"
+        [value]="selectedPeriod()"
+        (change)="onPeriodChange($event.value)"
+        hideSingleSelectionIndicator>
+        <mat-button-toggle value="today">Jour</mat-button-toggle>
+        <mat-button-toggle value="week">Semaine</mat-button-toggle>
+        <mat-button-toggle value="month">Mois</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+  </mat-card-header>
+
+  <mat-card-content>
+
+    <!-- ── Top KPIs ── -->
+    <div class="kpi-row">
+      <div class="kpi-item">
+        <span class="kpi-value">{{ totalChambres() }}</span>
+        <span class="kpi-label">Total chambres</span>
+      </div>
+      <div class="kpi-item kpi-accent">
+        <span class="kpi-value">{{ occupancyRate() }}<span class="kpi-unit">%</span></span>
+        <span class="kpi-label">Taux d'occupation</span>
+      </div>
+      <div class="kpi-item">
+        <span class="kpi-value">{{ revpar() }}<span class="kpi-unit">$</span></span>
+        <span class="kpi-label">RevPAR</span>
+      </div>
+    </div>
+
+    <mat-divider />
+
+    <!-- ── Chart + legend ── -->
+    <div class="chart-layout">
+
+      <!-- Donut -->
+      <div class="chart-wrapper">
+        <canvas #chartCanvas></canvas>
+        <div class="chart-center">
+          <span class="center-rate">{{ occupancyRate() }}%</span>
+          <span class="center-label">occupation</span>
+        </div>
+      </div>
+
+      <!-- Legend -->
+      <div class="legend-list">
+        @for (item of statusData(); track item.label; let i = $index) {
+          <div
+            class="legend-item"
+            [class.legend-item--hovered]="hoveredIndex() === i"
+            [matTooltip]="item.compteur + ' chambres — ' + getPercentage(item.compteur) + '%'">
+
+            <div class="legend-dot" [style.background]="item.color"></div>
+
+            <div class="legend-info">
+              <div class="legend-top">
+                <span class="legend-label">{{ item.label }}</span>
+                <span class="legend-trend" [style.color]="trendColor(item.trend)">
+                  <mat-icon inline>{{ trendIcon(item.trend) }}</mat-icon>
+                  {{ trendLabel(item.trend) }}
+                </span>
+              </div>
+              <div class="legend-bar-row">
+                <div class="legend-bar-bg">
+                  <div
+                    class="legend-bar-fill"
+                    [style.width.%]="getPercentage(item.compteur)"
+                    [style.background]="item.color">
+                  </div>
+                </div>
+                <span class="legend-count">{{ item.compteur }}</span>
+              </div>
+            </div>
+
+          </div>
+        }
+      </div>
+
+    </div>
+
+    <mat-divider />
+
+    <!-- ── Bottom chips ── -->
+    <div class="chip-row">
+      @for (item of statusData(); track item.label) {
+        <div
+          class="status-chip"
+          [style.background]="item.lightColor"
+          [style.color]="item.color">
+          <mat-icon inline>{{ item.icon }}</mat-icon>
+          {{ item.label }} · {{ item.compteur }} chambres
+        </div>
+      }
+    </div>
+
+  </mat-card-content>
+</mat-card>

@@ -6,43 +6,64 @@
 
     <mat-nav-list>
       <a mat-list-item routerLink="/dashboard" routerLinkActive="active">
-        <mat-icon>dashboard</mat-icon>
-        <span>Dashboard</span>
+        <span class="icon-bubble" style="background:#3b4fc8" matListItemIcon>
+          <mat-icon>dashboard</mat-icon>
+        </span>
+        <span matListItemTitle>Dashboard</span>
       </a>
+
       <a mat-list-item routerLink="/clients" routerLinkActive="active">
-        <mat-icon>person</mat-icon>
-        <span>Clients</span>
+        <span class="icon-bubble" style="background:#0f6e56" matListItemIcon>
+          <mat-icon>person</mat-icon>
+        </span>
+        <span matListItemTitle>Clients</span>
       </a>
-        <a mat-list-item routerLink="/entrees-sorties" routerLinkActive="active">
-        <mat-icon>swap_horiz</mat-icon>
-        <span>Entrées/Sorties</span>
+
+      <a mat-list-item routerLink="/entrees-sorties" routerLinkActive="active">
+        <span class="icon-bubble" style="background:#854f0b" matListItemIcon>
+          <mat-icon>swap_horiz</mat-icon>
+        </span>
+        <span matListItemTitle>Entrées/Sorties</span>
       </a>
+
       <a mat-list-item routerLink="/chambres" routerLinkActive="active">
-        <mat-icon>bed</mat-icon>
-        <span>Chambres</span>
+        <span class="icon-bubble" style="background:#993556" matListItemIcon>
+          <mat-icon>bed</mat-icon>
+        </span>
+        <span matListItemTitle>Chambres</span>
       </a>
+
       <a mat-list-item routerLink="/reservations" routerLinkActive="active">
-        <mat-icon>event_note</mat-icon>
-        <span>Réservations</span>
+        <span class="icon-bubble" style="background:#534ab7" matListItemIcon>
+          <mat-icon>event_note</mat-icon>
+        </span>
+        <span matListItemTitle>Réservations</span>
       </a>
+
       <a mat-list-item routerLink="/facturation" routerLinkActive="active">
-        <mat-icon>receipt_long</mat-icon>
-        <span>Facturation</span>
+        <span class="icon-bubble" style="background:#993c1d" matListItemIcon>
+          <mat-icon>receipt_long</mat-icon>
+        </span>
+        <span matListItemTitle>Facturation</span>
       </a>
+
       <a mat-list-item routerLink="/rapports" routerLinkActive="active">
-        <mat-icon>bar_chart</mat-icon>
-        <span>Rapports</span>
+        <span class="icon-bubble" style="background:#3b6d11" matListItemIcon>
+          <mat-icon>bar_chart</mat-icon>
+        </span>
+        <span matListItemTitle>Rapports</span>
       </a>
     </mat-nav-list>
+
   </mat-sidenav>
 
   <mat-sidenav-content>
     <mat-toolbar color="primary" class="main-toolbar">
-      <button mat-icon-button (click)="drawer.toggle()" class="menu-button">
+      <button mat-icon-button (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
-      <span>Gestion d’Hôtel</span>
+      <span>Gestion d'Hôtel</span>
     </mat-toolbar>
-
   </mat-sidenav-content>
+
 </mat-sidenav-container>

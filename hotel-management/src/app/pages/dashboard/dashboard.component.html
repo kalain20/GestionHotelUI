@@ -1,1 +1,26 @@
-<div><h1>Tableau de bord </h1>  </div> 
+<div><h1>Tableau de bord</h1></div>
+
+<div class="dashboard">
+
+  <!-- Ligne de stats KPI -->
+  <app-statistique-carte
+    [cartesPerformance]="(cartesPerformance$ | async)!"
+    [statistiques]="(statistiques | async) ?? []">
+  </app-statistique-carte>
+
+  <!-- Grille principale -->
+  <div class="main-grid">
+
+    <!-- Colonne gauche — carte des chambres -->
+    <div class="col-large">
+      <app-chambre-carte [etages]="(etages$ | async) ?? []"></app-chambre-carte>
+    </div>
+
+    <!-- Colonne droite — diagramme -->
+    <div class="col-side">
+      <app-diagramme-occupation-chambres></app-diagramme-occupation-chambres>
+    </div>
+
+  </div>
+
+</div>
